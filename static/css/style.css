@@ -1,0 +1,27 @@
+*{
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+}
+body{
+    background: rgb(200, 176, 176);
+}
+table{
+    margin-left: 20px;
+}
+table tr{
+    border-radius: 5px;
+    margin: 0px;
+    background: rgb(231, 222, 222);
+}
+    
+tr:nth-child(2n){
+    background-color: rgb(217, 180, 180) ;
+}
+tr{
+    border-collapse:collapse;
+}
+.center{
+    width: 900px;
+
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+   <title>Document</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="container my-3">
+        <form action="/" method="POST">
+          <div class="mb-3">
+            <h2 for="desc" class="form-label" >Description</h2>
+            <input type="text" class="form-control" name="content" id="content" placeholder="Add Task Here">
+          </div>
+          
+          <button type="submit" class="btn btn-primary mx-3">Submit</button>
+        </form>
+      </div>
+   <!-- creating a table -->
+   {% if tasks|length < 1  %}
+   <h4>There are no tasks. Create one below!</h4>
+   {% else %}
+
+   <table class="container" >
+    <tr>
+        <th>SNo.</th>
+        <th>Task</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for task in tasks %}
+    <tr >
+        <td>{{loop.index}}</td>
+        <td  class="center">{{ task.content }}</td>
+        <td>
+            <a href="delete/{{task.id}}"><button>Delete</button></a>
+            <a href="update/{{task.id}}"><button>Update</button></a>
+        </td>
+    </tr>
+    {% endfor %}
+    
+    </table>
+    {% endif %}
+
+</body>
+</html>
